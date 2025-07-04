@@ -1,2 +1,16 @@
-# License-plate-blur
-This is a website which identifies and blurs number plate in any picture automatically. No extra efforts is required, just one click and you're ready to go. This is much helpful in securing your personal data is privacy is the key factor now a days.  
+# License Plate Blur 🚗🔒
+
+This is a web-based tool that automatically detects and blurs number plates in any uploaded image using OpenCV. It's designed to help protect user privacy by masking identifiable data like vehicle registration numbers—no extra effort required!
+
+## 🔧 Features
+- Detects number plates using Haar Cascades
+- Automatically applies blur effect to detected plates
+- Simple web interface built with Flask
+- Fast and lightweight – just upload and go!
+
+## 🛠 Technologies Used
+- Python
+- Flask
+- OpenCV
+- HTML/CSS
+
