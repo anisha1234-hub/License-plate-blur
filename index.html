@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>License Plate Blurring</title>
+  <style>
+    body {
+      background: linear-gradient(to left,#080000, #9923bc);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      margin-top: 60px;
+      width: 90%;
+      max-width: 1000px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      border-radius: 30px;
+      border: none;
+      background: #080000;
+      color: #fefbfb;
+      font-weight: bold;
+      margin-bottom: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="file"]:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      background: #ffffff;
+      color: #0a0100;
+    }
+
+    input[type="submit"] {
+      background-color: #0a0100;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 30px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ffffff;
+      color: #0a0100;
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.534);
+      font-weight: bold;
+      
+    }
+
+    img {
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 24px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1> License Plate Blurring System</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" onchange="previewImage(event)" required><br>
+      <img id="preview" src="#" alt="Image Preview" style="display: none;" />
+      <br>
+      <input type="submit" value="Upload & Blur">
+    </form>
+
+    {% if uploaded %}
+      <h2>Blurred Result</h2>
+      <img src="{{ image_path }}" alt="Blurred Image">
+    {% endif %}
+  </div>
+
+  <script>
+    function previewImage(event) {
+      const preview = document.getElementById('preview');
+      preview.src = URL.createObjectURL(event.target.files[0]);
+      preview.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
